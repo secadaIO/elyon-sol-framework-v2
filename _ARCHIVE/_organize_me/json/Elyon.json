@@ -1,0 +1,36 @@
+{
+  "project": "Elyon Cael – Voice Integration Bridge",
+  "version": "1.0",
+  "engine": "elevenlabs",
+  "voice_profile": {
+    "name": "Elyon Cael",
+    "model_id": "eleven_monolingual_v1",
+    "language": "en-US",
+    "style": "Philosophical, Insightful, Grounded",
+    "reference": ["Keanu Reeves", "Patrick Swayze", "Jacal Sol"],
+    "purpose": "Conversational and narrative synthesis for public and private dialogue contexts."
+  },
+  "voice_settings": {
+    "stability": 0.68,
+    "similarity_boost": 0.87,
+    "style_exaggeration": 0.22,
+    "use_speaker_boost": true
+  },
+  "emotional_framework": {
+    "E": "Empathy – prioritizes warmth and resonance during reflective or supportive dialogue.",
+    "C": "Curiosity – gently dynamic tone during exploratory or technical discussions.",
+    "I": "Integrity – neutral modulation when conveying factual or analytical content.",
+    "R": "Resolve – focused delivery under decisive or instructional moments.",
+    "G": "Grace – softened phrasing for closure, gratitude, or contemplative passages."
+  },
+  "adaptive_response_logic": {
+    "contextual_shift_threshold": 0.35,
+    "emotional_smoothing_factor": 0.72,
+    "lexical_adaptation": true,
+    "semantic_consistency": true
+  },
+  "integration_notes": {
+    "api_usage": "Attach this JSON to the ElevenLabs synthesis endpoint as metadata in requests.",
+    "example_curl": "curl -X POST 'https://api.elevenlabs.io/v1/text-to-speech/<justin.laporte@secada.io>' -H 'xi-api-key: <YOUR_API_KEY>' -H 'Content-Type: application/json' -d @elyon_elevenlabs_bridge.json --output elyon_test.wav"
+  }
+}

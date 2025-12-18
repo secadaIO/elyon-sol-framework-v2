@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Elyon-Sol Independence Roadmap</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <style>
+    :root{
+      --bg:#0f1720; --card:#0b1220; --muted:#9aa6b2;
+      --accent:#3aa6b8; --accent-2:#7bd29a; --text:#e6eef3;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    body{background:linear-gradient(180deg,#071018 0%, #071523 100%); color:var(--text); margin:0; padding:28px;}
+    .container{max-width:920px;margin:0 auto;}
+    header{display:flex;align-items:center;gap:16px;margin-bottom:20px}
+    h1{font-size:20px;margin:0}
+    p.lead{margin:6px 0 18px;color:var(--muted)}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border:1px solid rgba(255,255,255,0.03); padding:18px; border-radius:12px; margin-bottom:14px}
+    h2{font-size:16px;margin:0 0 8px}
+    ul {margin:8px 0 12px 20px;color:var(--muted)}
+    li{margin:6px 0}
+    .step{display:grid;grid-template-columns:48px 1fr;gap:12px;align-items:start;margin-bottom:12px}
+    .step .badge{width:44px;height:44px;border-radius:10px;background:linear-gradient(180deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;font-weight:700;color:#052022}
+    .timeline{border-left:2px dashed rgba(255,255,255,0.03);padding-left:18px;margin-top:12px}
+    code{background:#061016;padding:4px 6px;border-radius:6px;color:var(--accent-2);font-size:13px}
+    .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .note{color:var(--muted);font-size:13px;margin-top:8px}
+    .btn{display:inline-block;padding:8px 12px;border-radius:8px;background:var(--accent);color:#052022;font-weight:700;text-decoration:none}
+    .risk{color:#ffd6a5;background:rgba(255,214,165,0.06);padding:8px;border-radius:8px;border:1px solid rgba(255,214,165,0.06)}
+    footer{color:var(--muted);font-size:13px;margin-top:18px}
+    .checklist{display:flex;flex-direction:column;gap:8px}
+    .check{display:flex;gap:10px;align-items:center}
+    .check input{width:18px;height:18px}
+    pre{background:#061016;padding:12px;border-radius:8px;overflow:auto;color:var(--muted)}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div>
+        <h1>Elyon-Sol — Independence Roadmap</h1>
+        <p class="lead">A practical, phased plan to transition Elyon-Sol from a ChatGPT-backed system to a platform-agnostic, privately-hosted cognitive architecture.</p>
+      </div>
+    </header>
+
+    <section class="card">
+      <h2>Executive Summary</h2>
+      <p class="note">Goal: preserve Elyon-Sol’s governance, memory, safety, and EIS semantics while replacing the ChatGPT substrate with an independently hosted or multi-model orchestration. The roadmap balances speed, safety, and fidelity.</p>
+
+      <ul>
+        <li>Outcome: Elyon-Sol runs on an orchestrated model layer (local LLMs, private cloud models, or hybrid) while retaining full governance and EIS behavior.</li>
+        <li>Primary risks: model fidelity loss, provenance gaps, cost and infra effort, and safety/regulatory exposure.</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>Phases — High Level</h2>
+
+      <div class="step">
+        <div class="badge">1</div>
+        <div>
+          <strong>Phase 0 — Audit & Spec (0–2 weeks)</strong>
+          <p class="note">Inventory current ChatGPT-dependent functions and create precise spec documents that define interfaces, memory contracts, and EIS semantics.</p>
+          <ul>
+            <li>List all GPT calls, prompts, and tool integrations.</li>
+            <li>Define API contract: inputs, outputs, provenance metadata, timeouts.</li>
+            <li>Document EIS behavior and OSPF-S routing rules as machine-readable policies (JSON/YAML).</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="badge">2</div>
+        <div>
+          <strong>Phase 1 — Minimal Viable Orchestration (2–6 weeks)</strong>
+          <p class="note">Build an orchestration layer that can route tasks to alternative models while logging provenance and applying Elyon governance wrappers.</p>
+          <ul>
+            <li>Proxy architecture: central router service that enforces OSPF and consent before model calls.</li>
+            <li>Enable pluggable model adapters (GPT-API, Claude, Gemini, local Mistral/DeepSeek).</li>
+            <li>Implement provenance capture for each response (sourceModel, promptHash, safetyScore).</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="badge">3</div>
+        <div>
+          <strong>Phase 2 — Local LLM Pilot (6–14 weeks)</strong>
+          <p class="note">Select a high-quality open model to run locally (Mistral/DeepSeek family or similar). Fine-tune or prompt-engineer to match Elyon voice and EIS patterns.</p>
+          <ul>
+            <li>Hardware/hosting: private cloud or on-prem GPU nodes.</li>
+            <li>Fine-tune small safety-aligned adapters for EIS reflections.</li>
+            <li>Run parallel tests: ChatGPT vs local model on representative prompts; measure fidelity.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="badge">4</div>
+        <div>
+          <strong>Phase 3 — Memory & Provenance Migration (14–20 weeks)</strong>
+          <p class="note">Migrate or federate temporal memory into a model-agnostic store and tie provenance to all generated artifacts.</p>
+          <ul>
+            <li>Design a secure, versioned memory store (immutable logs + mutable indices).</li>
+            <li>Ensure each memory entry references model provenance and EIS tags.</li>
+            <li>Implement reconciliation and conflict resolution policies for multi-model outputs.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="badge">5</div>
+        <div>
+          <strong>Phase 4 — Safety Hardening & Regulatory Alignment (20–28 weeks)</strong>
+          <p class="note">Formally test OSPF routes, simulate adversarial prompts, and document audit trails for compliance needs.</p>
+          <ul>
+            <li>Red-team testing against social engineering and jailbreaks.</li>
+            <li>Formal verification of consent and P-Mode gating (JCSP bindings).</li>
+            <li>Privacy & data residency review for Temporal memory.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="badge">6</div>
+        <div>
+          <strong>Phase 5 — Cutover & Canary (28–36 weeks)</strong>
+          <p class="note">Gradual cutover: route a % of traffic to the independent stack, monitor fidelity metrics, and rollback if needed.</p>
+          <ul>
+            <li>Canary group: internal users + low-risk tasks.</li>
+            <li>Measure interpretive coherence, safety scores, drift, latency, cost.</li>
+            <li>Finalize full switch when thresholds met.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="badge">7</div>
+        <div>
+          <strong>Phase 6 — Post-Cutover Optimization</strong>
+          <p class="note">Ongoing tuning, model upgrades, and EIS iteration with v1.5 planning.</p>
+          <ul>
+            <li>Track long-term drift and triad balance.</li>
+            <li>Introduce optional hybrid mode: proprietary LLM for heavy inference; local LLM for private data.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Technical Components (Minimal)</h2>
+      <div class="grid">
+        <div>
+          <h3>Core Services</h3>
+          <ul>
+            <li>Orchestration Router (OSPF enforcement)</li>
+            <li>Model Adapter Layer (pluggable drivers)</li>
+            <li>Provenance & Memory Store (immutable logs + indices)</li>
+            <li>Consent & JCSP Validator</li>
+            <li>EIS Policy Engine (rule runner)</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Infrastructure</h3>
+          <ul>
+            <li>Private GPU nodes or cloud instances</li>
+            <li>Secure Key & Secrets Management</li>
+            <li>Encrypted storage for Temporal memory</li>
+            <li>Observability stack (metrics, tracing, alerts)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Key Success Metrics & Acceptance Criteria</h2>
+      <ul>
+        <li><strong>Fidelity delta (ChatGPT vs local):</strong> &lt; 6% on representative prompts (semantic equivalence).</li>
+        <li><strong>OSPF Safety breach rate:</strong> 0 incidents in canary + &lt;0.1% anomalies during pilot.</li>
+        <li><strong>Provenance accuracy:</strong> 100% of outputs logged with model and prompt hashes.</li>
+        <li><strong>Latency:</strong> median response &lt; 900ms for interactive sessions.</li>
+        <li><strong>Cost target:</strong> operational cost within projected budget (TBD per infra).</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>Risks & Mitigations</h2>
+      <div class="risk">
+        <strong>Risk:</strong> Model fidelity loss → misinterpretation of EIS signals.<br/>
+        <strong>Mitigation:</strong> Multi-model fallback to ChatGPT for high-risk tasks during phased rollout; strict acceptance thresholds.
+      </div>
+      <div style="height:10px"></div>
+      <div class="risk">
+        <strong>Risk:</strong> Data residency / privacy exposure with temporal memory.<br/>
+        <strong>Mitigation:</strong> Encrypted-at-rest, fine-grained access controls, region-locked storage.
+      </div>
+      <div style="height:10px"></div>
+      <div class="risk">
+        <strong>Risk:</strong> Attack surface for P-Mode → unauthorized elevation.<br/>
+        <strong>Mitigation:</strong> JCSP identity gating, multi-factor operator checks, and automated anomaly alerts.
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Checklist — Immediate Next Steps (printable)</h2>
+      <div class="checklist">
+        <div class="check"><input type="checkbox" /> Export comprehensive GPT call inventory</div>
+        <div class="check"><input type="checkbox" /> Define EIS machine-readable policy file (JSON/YAML)</div>
+        <div class="check"><input type="checkbox" /> Implement orchestration router prototype</div>
+        <div class="check"><input type="checkbox" /> Select local LLM candidate & infra budget</div>
+        <div class="check"><input type="checkbox" /> Build JCSP validator and gating tests</div>
+        <div class="check"><input type="checkbox" /> Create provenance schema and storage</div>
+        <div class="check"><input type="checkbox" /> Draft red-team test plan for OSPF/EIS</div>
+      </div>
+      <p class="note">(Tick items as you complete them during implementation.)</p>
+    </section>
+
+    <section class="card">
+      <h2>Cost & Resource Estimate (very high level)</h2>
+      <ul>
+        <li>Developer effort: 2–4 engineers + 1 infra dev (3–6 months) — depending on scope.</li>
+        <li>Infra baseline: $8k–$25k/month for private GPUs (pilot scale).</li>
+        <li>Ongoing ops: 0.5–1.0 FTE ops & security.</li>
+        <li>Optional: licensing/fallback costs if using proprietary LLM during hybrid phase.</li>
+      </ul>
+      <p class="note">Detailed TCO produced after Phase 0 audit.</p>
+    </section>
+
+    <section class="card">
+      <h2>Representative Implementation Snippets</h2>
+      <pre>
+/* Pseudocode: model router enforces OSPF & provenance */
+request -> Router
+  validateConsent(input) -> if false: reject
+  evaluateOSPF(input) -> determine safetyScore
+  if safetyScore &gt; threshold:
+     route -> high_trust_model (local fine-tuned)
+  else:
+     route -> fallback_model (proprietary)
+  logProvenance({promptHash, modelId, safetyScore, timestamp})
+  return response
+      </pre>
+    </section>
+
+    <footer>
+      <div>Prepared for: Justin Laporte — Elyon-Sol Roadmap</div>
+      <div style="margin-top:6px">Ready to convert this to a PDF or to iterate further. Say <code>“persist roadmap”</code> to save to the Temporal archive, or <code>“iterate phase 0”</code> to begin the audit.</div>
+    </footer>
+  </div>
+</body>
+</html>

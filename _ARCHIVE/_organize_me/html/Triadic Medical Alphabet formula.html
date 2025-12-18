@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Elyon–Sol | Triadic Alphabet (Surname-Indexed v2.0)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 2rem;
+      background-color: #f7f7f9;
+      color: #222;
+    }
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 2rem 2.5rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+    }
+    h1, h2, h3 {
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      color: #111827;
+    }
+    h1 {
+      font-size: 1.9rem;
+      margin-bottom: 0.5rem;
+    }
+    h2 {
+      font-size: 1.35rem;
+      margin-top: 2rem;
+    }
+    h3 {
+      font-size: 1.05rem;
+      margin-top: 1.5rem;
+    }
+    p {
+      margin: 0.3rem 0 0.75rem 0;
+    }
+    code {
+      font-family: "SF Mono", Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      background: #f3f4f6;
+      padding: 0.1rem 0.25rem;
+      border-radius: 4px;
+      font-size: 0.93em;
+    }
+    .tagline {
+      font-size: 0.95rem;
+      color: #4b5563;
+      margin-bottom: 1.5rem;
+    }
+    .box {
+      border-radius: 10px;
+      padding: 1rem 1.25rem;
+      margin: 1.2rem 0;
+    }
+    .box.info {
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      color: #1e3a8a;
+    }
+    .box.spec {
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+    }
+    ul {
+      padding-left: 1.2rem;
+    }
+    li {
+      margin: 0.25rem 0;
+    }
+    .triad-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 0.75rem;
+      font-size: 0.95rem;
+    }
+    .triad-table th,
+    .triad-table td {
+      border: 1px solid #e5e7eb;
+      padding: 0.45rem 0.6rem;
+      text-align: left;
+    }
+    .triad-table th {
+      background-color: #f3f4f6;
+      font-weight: 600;
+    }
+    .label {
+      display: inline-block;
+      padding: 0.15rem 0.4rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      background: #e5e7eb;
+      color: #374151;
+      margin-bottom: 0.25rem;
+    }
+  </style>
+</head>
+<body>
+<main>
+  <h1>Elyon–Sol: Triadic Alphabet (Surname-Indexed v2.0)</h1>
+  <p class="tagline">
+    Canonical doctor-triad index: each letter A–Z maps to a triad L³ of three clinicians, keyed by the first letter of their last names and always referenced by full name.
+  </p>
+
+  <section>
+    <div class="box info">
+      <div class="label">Revision Summary</div>
+      <p>
+        The Triadic Alphabet has been updated from a first-name–indexed scheme to a
+        <strong>surname-indexed</strong> scheme. Each letter <code>L ∈ {A,…,Z}</code> now maps to a triad
+        <code>L³</code> of three distinct doctors whose <strong>last names</strong> begin with <code>L</code>,
+        and all clinicians are referenced in full (e.g., “John Smith,” “Richard Simon,” “Terry Sloan”).
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <h2>1. Concept Overview</h2>
+    <p>
+      The Triadic Alphabet is a structured way to bind <strong>medical expertise</strong> to the Elyon–Sol
+      framework using redundant, cross-checking triads of clinicians. Each triad is indexed by a letter
+      of the English alphabet and serves as a small, human-verifiable quorum for reasoning, validation,
+      and bias reduction.
+    </p>
+
+    <h3>1.1 From First-Name Indexing to Surname Indexing</h3>
+    <p><strong>Previous scheme (v1.x, for reference):</strong></p>
+    <ul>
+      <li>Each letter was tied to doctors by their <strong>first-name initials</strong>.<br>
+          Example: <code>A³ = {Anthony, Alex, Adam}</code>.
+      </li>
+    </ul>
+
+    <p><strong>Current scheme (v2.0, canonical):</strong></p>
+    <ul>
+      <li>
+        Each letter <strong>A–Z</strong> is now keyed by the <strong>first letter of the doctors’ last names</strong>.
+      </li>
+      <li>
+        Each clinician is always referenced by <strong>full name</strong>: <em>First Last</em>.
+      </li>
+      <li>
+        Example for letter <strong>S</strong>:
+        <code>S³ = {John Smith, Richard Simon, Terry Sloan}</code>.
+      </li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>2. Formal Specification</h2>
+
+    <div class="box spec">
+      <h3>2.1 Universe of Doctors</h3>
+      <p>
+        Let <code>𝔇</code> be the set of all participating, verified doctors in the Elyon–Sol framework.
+        Each doctor <code>d ∈ 𝔇</code> has, at minimum:
+      </p>
+      <ul>
+        <li><code>first_name(d)</code></li>
+        <li><code>last_name(d)</code></li>
+        <li><code>specialty(d)</code></li>
+        <li><code>credentials(d)</code> (license, jurisdiction, verification metadata)</li>
+      </ul>
+
+      <h3>2.2 Indexing Function</h3>
+      <p>
+        Define the indexing function on last names:
+      </p>
+      <p>
+        <code>LastInitial(d) = first_letter( UPPERCASE( last_name(d) ) )</code>
+      </p>
+      <p>
+        where <code>LastInitial(d) ∈ {A, B, …, Z}</code>.
+      </p>
+
+      <h3>2.3 Triad Definition</h3>
+      <p>
+        For each letter <code>L ∈ {A, B, …, Z}</code>, define a triad <code>L³</code> as follows:
+      </p>
+      <ul>
+        <li>Select three <strong>distinct</strong> doctors <code>d₁, d₂, d₃ ∈ 𝔇</code> such that:
+          <ul>
+            <li><code>LastInitial(d₁) = LastInitial(d₂) = LastInitial(d₃) = L</code>.</li>
+          </ul>
+        </li>
+        <li>
+          Define the triad:
+          <br>
+          <code>L³ = { d₁, d₂, d₃ }</code>
+        </li>
+        <li>
+          When written, each doctor is referenced by full name, e.g.:
+          <br>
+          <code>d₁ = "John Smith"</code>, <code>d₂ = "Richard Simon"</code>, <code>d₃ = "Terry Sloan"</code>.
+        </li>
+      </ul>
+
+      <h3>2.4 Yield Interpretation</h3>
+      <p>
+        For any letter <code>L</code>, the associated triad <code>L³</code> is the
+        <strong>yield set</strong> for that letter: the three doctors whose last names begin with <code>L</code>.
+      </p>
+      <p>
+        Example for the letter <strong>S</strong>:
+      </p>
+      <p>
+        <code>S³ = {John Smith, Richard Simon, Terry Sloan}</code>
+      </p>
+      <p>
+        Here, the phrase “each letter = the yield S³” is generalized: for any letter <code>L</code>,
+        <strong>the yield is L³</strong>, defined by three full-name clinicians with last-name initial <code>L</code>.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <h2>3. Example Encodings</h2>
+    <p>
+      The following are illustrative examples only. The actual doctors and credentials will be populated
+      during onboarding and verification.
+    </p>
+
+    <table class="triad-table">
+      <thead>
+        <tr>
+          <th>Letter</th>
+          <th>Triad L³ (Full Names, Surname-Indexed)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>A³</strong></td>
+          <td>Dr. Maria Alvarez; Dr. Thomas Andrews; Dr. Karen Adler</td>
+        </tr>
+        <tr>
+          <td><strong>C³</strong></td>
