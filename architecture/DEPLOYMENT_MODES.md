@@ -1,19 +1,27 @@
-# DEPLOYMENT_MODES.md
+# Deployment Modes
 
 Status: Draft  
-Scope: Public-Safe  
-Governance: Elyon-Sol MASTER CONTEXT v1.0 compliant  
-
-This document is descriptive only.
-It contains no executable logic, no autonomous decision-making,
-and no diagnostic or clinical assertions.
+Scope: Safe deployment posture (descriptive)  
+Governance: Elyon-Sol Framework v1.0.0-structure  
 
 ---
-Purpose:
-- TODO
 
-Scope:
-- TODO
+## Recommended POC Deployment
 
-Notes:
-- TODO
+- **Shadow Mode**
+  - Observe workflows without affecting outcomes
+
+- **Read-Only Advisory Mode**
+  - Summaries and flags only
+  - No downstream action triggers
+
+- **Human-Supervised Review Mode**
+  - Outputs routed to accountable reviewers
+
+---
+
+## Not Supported
+
+- Autonomous clinical workflows
+- Automatic acceptance of high-stakes decisions
+- Unattributed outcomes

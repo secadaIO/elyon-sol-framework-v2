@@ -1,19 +1,39 @@
-# SECURITY_BOUNDARIES.md
+# Security Boundaries
 
 Status: Draft  
-Scope: Public-Safe  
-Governance: Elyon-Sol MASTER CONTEXT v1.0 compliant  
-
-This document is descriptive only.
-It contains no executable logic, no autonomous decision-making,
-and no diagnostic or clinical assertions.
+Scope: Boundary model (descriptive)  
+Governance: Elyon-Sol Framework v1.0.0-structure  
 
 ---
-Purpose:
-- TODO
 
-Scope:
-- TODO
+## Boundary Types
 
-Notes:
-- TODO
+- **Data Boundary**
+  - Sensitive vs non-sensitive separation
+
+- **Authority Boundary**
+  - Human authority required for meaningful outcomes
+
+- **Consent Boundary**
+  - Processing restricted when consent is invalid
+
+- **Execution Boundary**
+  - No autonomous actions
+
+---
+
+## Threats Addressed (Conceptual)
+
+- Accidental disclosure
+- Overconfident automation
+- Silent escalation suppression
+- Context bleed across modes
+
+---
+
+## Default Posture
+
+Fail safe:
+- restrict output
+- escalate to humans
+- log the event
