@@ -1,19 +1,34 @@
-# HUMAN_IN_THE_LOOP.md
+# Human-in-the-Loop Requirement
 
 Status: Draft  
-Scope: Public-Safe  
-Governance: Elyon-Sol MASTER CONTEXT v1.0 compliant  
-
-This document is descriptive only.
-It contains no executable logic, no autonomous decision-making,
-and no diagnostic or clinical assertions.
+Scope: Oversight and accountability  
+Governance: Elyon-Sol Framework v1.0.0-structure  
 
 ---
-Purpose:
-- TODO
 
-Scope:
-- TODO
+## Requirement
 
-Notes:
-- TODO
+All meaningful outcomes require review or authorization
+by a named, accountable human authority.
+
+---
+
+## AI Role
+
+AI may:
+- Assist
+- Summarize
+- Flag risks
+- Provide explanations
+
+AI may not:
+- Decide
+- Approve
+- Override human judgment
+
+---
+
+## Accountability
+
+Human reviewers retain responsibility for decisions,
+including acceptance, rejection, or escalation.

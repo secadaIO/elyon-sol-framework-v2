@@ -1,19 +1,31 @@
-# GOVERNANCE_FAILURE_MODES.md
+# Governance Failure Modes
 
 Status: Draft  
-Scope: Public-Safe  
-Governance: Elyon-Sol MASTER CONTEXT v1.0 compliant  
-
-This document is descriptive only.
-It contains no executable logic, no autonomous decision-making,
-and no diagnostic or clinical assertions.
+Scope: Risk identification  
+Governance: Elyon-Sol Framework v1.0.0-structure  
 
 ---
-Purpose:
-- TODO
 
-Scope:
-- TODO
+## Known Failure Modes
 
-Notes:
-- TODO
+- Overreliance on model confidence
+- Implicit authority assumptions
+- Silent automation
+- Consent drift
+- Escalation suppression
+
+---
+
+## Mitigation Strategy
+
+Each failure mode is addressed by:
+- Explicit invariants
+- Mandatory escalation
+- Human-in-the-loop enforcement
+- Audit visibility
+
+---
+
+## Design Goal
+
+The framework is designed to fail **safely and visibly**.

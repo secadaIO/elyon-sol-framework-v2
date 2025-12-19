@@ -1,19 +1,33 @@
-# AUDITABILITY_MODEL.md
+# Auditability Model
 
 Status: Draft  
-Scope: Public-Safe  
-Governance: Elyon-Sol MASTER CONTEXT v1.0 compliant  
-
-This document is descriptive only.
-It contains no executable logic, no autonomous decision-making,
-and no diagnostic or clinical assertions.
+Scope: Traceability and review  
+Governance: Elyon-Sol Framework v1.0.0-structure  
 
 ---
-Purpose:
-- TODO
 
-Scope:
-- TODO
+## Audit Requirements
 
-Notes:
-- TODO
+The framework supports post-hoc review of:
+- Inputs
+- Authority context
+- Consent state
+- Outputs
+- Escalation events
+
+---
+
+## Properties
+
+Audit records must be:
+- Deterministic
+- Tamper-evident
+- Human-readable
+- Context-preserving
+
+---
+
+## Purpose
+
+Auditability enables accountability,
+regulatory review, and trust without secrecy.

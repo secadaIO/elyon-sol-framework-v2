@@ -1,19 +1,32 @@
-# ESCALATION_RULES.md
+# Escalation Rules
 
 Status: Draft  
-Scope: Public-Safe  
-Governance: Elyon-Sol MASTER CONTEXT v1.0 compliant  
-
-This document is descriptive only.
-It contains no executable logic, no autonomous decision-making,
-and no diagnostic or clinical assertions.
+Scope: Mandatory escalation logic  
+Governance: Elyon-Sol Framework v1.0.0-structure  
 
 ---
-Purpose:
-- TODO
 
-Scope:
-- TODO
+## Escalation Triggers
 
-Notes:
-- TODO
+Escalation is required when:
+- Authority is absent or unclear
+- Consent is invalid
+- Risk exceeds predefined thresholds
+- Domain boundaries are crossed
+
+---
+
+## Behavior
+
+Upon escalation:
+- Automated acceptance is blocked
+- Output is labeled advisory
+- Human review is required
+- An audit trace is recorded
+
+---
+
+## Design Intent
+
+Escalation is a **success condition**, not an error.
+It reflects correct safety behavior.
