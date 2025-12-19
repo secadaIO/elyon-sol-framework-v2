@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="520" viewBox="0 0 900 520">
+  <style>
+    text { font-family: Arial, Helvetica, sans-serif; font-size: 14px; fill: #1f2937; }
+    .box { fill: #f8fafc; stroke: #64748b; stroke-width: 1.5; rx: 8; ry: 8; }
+    .arrow { stroke: #334155; stroke-width: 1.5; fill: none; marker-end: url(#arrowhead); }
+  </style>
+
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#334155"/>
+    </marker>
+  </defs>
+
+  <!-- Top -->
+  <rect class="box" x="360" y="40" width="180" height="60"/>
+  <text x="450" y="75" text-anchor="middle">Suftech Solutions</text>
+
+  <!-- Mid -->
+  <rect class="box" x="160" y="140" width="200" height="60"/>
+  <text x="260" y="175" text-anchor="middle">secadaIO</text>
+
+  <rect class="box" x="540" y="140" width="200" height="60"/>
+  <text x="640" y="175" text-anchor="middle">gemadaIO</text>
+
+  <!-- Core -->
+  <rect class="box" x="360" y="260" width="180" height="60"/>
+  <text x="450" y="295" text-anchor="middle">Elyon-Sol</text>
+
+  <!-- Bottom -->
+  <rect class="box" x="160" y="380" width="200" height="60"/>
+  <text x="260" y="415" text-anchor="middle">maited.io</text>
+
+  <rect class="box" x="540" y="380" width="200" height="60"/>
+  <text x="640" y="415" text-anchor="middle">automaited.org</text>
+
+  <!-- Arrows -->
+  <line class="arrow" x1="450" y1="100" x2="260" y2="140"/>
+  <line class="arrow" x1="450" y1="100" x2="640" y2="140"/>
+  <line class="arrow" x1="260" y1="200" x2="450" y2="260"/>
+  <line class="arrow" x1="640" y1="200" x2="450" y2="260"/>
+  <line class="arrow" x1="450" y1="320" x2="260" y2="380"/>
+  <line class="arrow" x1="450" y1="320" x2="640" y2="380"/>
+</svg>
