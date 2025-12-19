@@ -1,19 +1,31 @@
-# VERIFICATION_STEPS.md
+# Verification Steps
 
 Status: Draft  
-Scope: Public-Safe  
-Governance: Elyon-Sol MASTER CONTEXT v1.0 compliant  
-
-This document is descriptive only.
-It contains no executable logic, no autonomous decision-making,
-and no diagnostic or clinical assertions.
+Scope: Reviewer guidance  
+Governance: Elyon-Sol Framework v1.0.0-structure  
 
 ---
-Purpose:
-- TODO
 
-Scope:
-- TODO
+## Verification Checklist
 
-Notes:
-- TODO
+Reviewers may verify:
+- Presence of authority checks
+- Enforcement of escalation rules
+- Absence of autonomous behavior
+- Availability of audit records
+
+---
+
+## What Verification Is Not
+
+Verification does not require:
+- Running software
+- Executing models
+- Accessing private data
+
+---
+
+## Outcome
+
+Verification confirms **governance intent and constraint**,
+not performance or accuracy.

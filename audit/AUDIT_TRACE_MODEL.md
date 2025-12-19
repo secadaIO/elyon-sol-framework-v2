@@ -1,19 +1,33 @@
-# AUDIT_TRACE_MODEL.md
+# Audit Trace Model
 
 Status: Draft  
-Scope: Public-Safe  
-Governance: Elyon-Sol MASTER CONTEXT v1.0 compliant  
-
-This document is descriptive only.
-It contains no executable logic, no autonomous decision-making,
-and no diagnostic or clinical assertions.
+Scope: Event-level traceability  
+Governance: Elyon-Sol Framework v1.0.0-structure  
 
 ---
-Purpose:
-- TODO
 
-Scope:
-- TODO
+## Trace Elements
 
-Notes:
-- TODO
+Each auditable event may include:
+- Timestamp
+- Context identifier
+- Authority presence or absence
+- Consent status
+- Action attempted
+- Outcome (allowed, blocked, escalated)
+
+---
+
+## Properties
+
+Audit traces are:
+- Append-only
+- Context-preserving
+- Human-interpretable
+
+---
+
+## Design Constraint
+
+Audit traces describe **what happened and why**,
+not how to reproduce or automate behavior.

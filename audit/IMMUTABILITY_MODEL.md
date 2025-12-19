@@ -1,19 +1,30 @@
-# IMMUTABILITY_MODEL.md
+# Immutability Model
 
 Status: Draft  
-Scope: Public-Safe  
-Governance: Elyon-Sol MASTER CONTEXT v1.0 compliant  
-
-This document is descriptive only.
-It contains no executable logic, no autonomous decision-making,
-and no diagnostic or clinical assertions.
+Scope: Integrity and change control  
+Governance: Elyon-Sol Framework v1.0.0-structure  
 
 ---
-Purpose:
-- TODO
 
-Scope:
-- TODO
+## Principle
 
-Notes:
-- TODO
+Immutability applies to **records**, not systems.
+
+---
+
+## Model
+
+- Draft documents may change
+- Released versions are fixed
+- Anchored references are immutable
+
+---
+
+## Intent
+
+The goal is to preserve:
+- Historical accuracy
+- Reviewability
+- Accountability
+
+Without preventing iteration or improvement.

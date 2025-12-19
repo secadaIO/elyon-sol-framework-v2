@@ -1,19 +1,39 @@
-# CARDANO_ANCHORS.md
+# Cardano Anchors
 
 Status: Draft  
-Scope: Public-Safe  
-Governance: Elyon-Sol MASTER CONTEXT v1.0 compliant  
-
-This document is descriptive only.
-It contains no executable logic, no autonomous decision-making,
-and no diagnostic or clinical assertions.
+Scope: Optional immutability anchoring  
+Governance: Elyon-Sol Framework v1.0.0-structure  
 
 ---
-Purpose:
-- TODO
 
-Scope:
-- TODO
+## Purpose
 
-Notes:
-- TODO
+Cardano anchoring may be used to provide
+tamper-evident, third-party-verifiable references
+to governance states or documentation snapshots.
+
+Anchoring is **optional** and **non-operative**.
+
+---
+
+## What Is Anchored
+
+- Hashes of documents or manifests
+- Version identifiers
+- Governance milestones
+
+---
+
+## What Is Not Anchored
+
+- Personal data
+- PHI
+- Secrets or credentials
+- Executable logic
+
+---
+
+## Interpretation
+
+Anchors serve as **evidence of existence and integrity**,
+not authority or control mechanisms.
