@@ -1,3 +1,0 @@
-# Proprietary Terms
-
-Placeholder.

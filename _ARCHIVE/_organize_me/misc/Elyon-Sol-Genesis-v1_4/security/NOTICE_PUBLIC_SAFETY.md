@@ -1,1 +1,0 @@
-This repository contains only public-safe conceptual materials. No operational logic included.
