@@ -1,0 +1,91 @@
+fsm: ConsentFSM
+version: 1.0
+description: >
+  Consent is a stateful, revocable signal required
+  before interpretation or execution consideration.
+
+states:
+  - UNKNOWN
+  - DECLARED
+  - SCOPED
+  - ACTIVE
+  - EXPIRED
+  - REVOKED
+transitions:
+  UNKNOWN:
+    - DECLARED
+
+  DECLARED:
+    - SCOPED
+    - REVOKED
+
+  SCOPED:
+    - ACTIVE
+    - REVOKED
+
+  ACTIVE:
+    - EXPIRED
+    - REVOKED
+
+  EXPIRED:
+    - DECLARED
+
+  REVOKED: []
+
+evaluation:
+  default_state: UNKNOWN
+
+  required_for:
+    - interpretation
+    - execution_consideration
+
+  insufficient_for:
+    - execution
+    - authority_satisfaction
+
+  state_requirements:
+    interpretation:
+      allowed_states: [ACTIVE]
+      blocked_states: [UNKNOWN, DECLARED, SCOPED, EXPIRED, REVOKED]
+
+    execution_consideration:
+      allowed_states: [ACTIVE]
+      blocked_states: [UNKNOWN, DECLARED, SCOPED, EXPIRED, REVOKED]
+
+identity_interaction:
+  identity_signal:
+    may_inform:
+      - consent_context
+      - scope_matching
+      - renewal_prompt
+
+    may_not:
+      - grant_consent
+      - escalate_state
+      - bypass_revocation
+      - bypass_expiry
+      - satisfy_authority
+
+temporal_rules:
+  clock:
+    authoritative: UTC
+
+  expiry:
+    enabled: true
+
+    applies_to_states: [ACTIVE]
+
+    transitions_on_expiry:
+      from: ACTIVE
+      to: EXPIRED
+
+    requirements:
+      - issued_at_utc
+      - expires_at_utc
+
+    notes:
+      - Expiry evaluation must be deterministic.
+      - Local time is never authoritative.
+      - Identity events (DID/Keria) may not extend expiry.
+
+
