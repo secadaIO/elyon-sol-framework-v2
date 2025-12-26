@@ -1,0 +1,9 @@
+{
+  "artifact": "IDENTITY_INVARIANTS.md",
+  "version": "1.0",
+  "network": "cardano",
+  "metadata_label": "721005",
+  "tx_id": "9cf9a49fc45ab888177dd9b734753da282197aaea50e34c4a853895720c59159",
+  "anchored_at": "2025-12-26",
+  "anchor_type": "proof-of-existence"
+}
