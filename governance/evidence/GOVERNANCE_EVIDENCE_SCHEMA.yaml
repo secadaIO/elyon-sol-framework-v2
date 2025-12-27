@@ -1,0 +1,109 @@
+governance_evidence:
+  name: Governance Evidence Ledger
+  version: 1.0
+  purpose: >
+    Provide deterministic, auditable evidence for
+    governance outcomes, especially refusal (FAIL),
+    without executing actions or storing sensitive data.
+
+record:
+  required_fields:
+    - timestamp_utc
+    - request_id
+    - governance_layer
+    - rule_triggered
+    - outcome
+
+blocking_reasons:
+
+  consent:
+    - CONSENT_MISSING
+    - CONSENT_NOT_ACTIVE
+    - CONSENT_EXPIRED
+    - CONSENT_REVOKED
+
+  authority:
+    - AUTHORITY_GAP
+    - AUTHORITY_ASSERTED_NOT_VERIFIED
+    - AUTHORITY_WITHDRAWN
+
+  governance:
+    - INVARIANT_VIOLATION
+    - NON_SUBSTITUTION_ATTEMPT
+
+outcomes:
+  PASS:
+    description: >
+      Governance conditions satisfied.
+      Execution may proceed only if explicitly authorized.
+
+  FAIL:
+    description: >
+      Governance conditions not satisfied.
+      No execution permitted.
+
+rule_to_outcome:
+  CONSENT_MISSING: FAIL
+  CONSENT_NOT_ACTIVE: FAIL
+  CONSENT_EXPIRED: FAIL
+  CONSENT_REVOKED: FAIL
+
+  AUTHORITY_GAP: FAIL
+  AUTHORITY_ASSERTED_NOT_VERIFIED: FAIL
+  AUTHORITY_WITHDRAWN: FAIL
+
+  INVARIANT_VIOLATION: FAIL
+  NON_SUBSTITUTION_ATTEMPT: FAIL
+
+explainability:
+  human_operator:
+    must_show:
+      - outcome
+      - blocking_reason
+      - governance_layer
+
+  auditor:
+    may_show:
+      - timestamp_utc
+      - rule_triggered
+      - outcome
+
+  prohibited:
+    - inferred_intent
+    - model_confidence
+    - identity_details
+
+relationships:
+  consent_fsm:
+    source_of:
+      - CONSENT_MISSING
+      - CONSENT_NOT_ACTIVE
+      - CONSENT_EXPIRED
+      - CONSENT_REVOKED
+
+  authority_gap:
+    source_of:
+      - AUTHORITY_GAP
+      - AUTHORITY_ASSERTED_NOT_VERIFIED
+      - AUTHORITY_WITHDRAWN
+
+observability:
+  surfaced_as:
+    - governance_evidence
+
+  jive:
+    show:
+      - show_evidence
+      - explain_refusal
+
+    simulate:
+      - consent_missing
+      - authority_missing
+      - combined_governance_failure
+
+  semantics:
+    governance_evidence_is:
+      - read_only
+      - append_only
+      - non_executable
+
