@@ -1,0 +1,32 @@
+governance_contract:
+  name: Elyon-Sol Governance Contract
+  version: 1.0
+  purpose: >
+    Define rules for evolving governance artifacts
+    without violating locked invariants.
+
+  invariant_status:
+    - consent_fsm: LOCKED
+    - authority_gap: LOCKED
+    - identity_axioms: LOCKED
+
+versioning:
+  allowed_changes:
+    - additive_clarification
+    - documentation_expansion
+    - new_artifact_introduction
+
+  forbidden_changes:
+    - weakening_invariants
+    - implicit_authority
+    - identity_permissioning
+
+change_process:
+  requires:
+    - explicit_proposal
+    - human_review
+    - version_bump
+    - audit_note
+
+  default_action_on_violation: BLOCK
+
