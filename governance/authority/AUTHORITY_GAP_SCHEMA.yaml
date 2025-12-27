@@ -1,0 +1,85 @@
+authority_gap:
+  name: T26
+  version: 1.0
+  description: >
+    Authority Gap defines the explicit absence of authority
+    as a valid, blocking state. No action may occur unless
+    authority is present and verified.
+
+  default_state: GAP
+
+states:
+  - GAP        # no authority present
+  - ASSERTED   # authority claimed but not verified
+  - VERIFIED   # authority verified and scoped
+
+transitions:
+  GAP:
+    - ASSERTED
+
+  ASSERTED:
+    - VERIFIED
+    - GAP
+
+  VERIFIED:
+    - GAP
+
+evaluation:
+  required_for:
+    - execution
+
+  insufficient_for:
+    - interpretation
+    - execution_consideration
+
+  blocking_states:
+    - GAP
+    - ASSERTED
+
+non_substitution:
+  may_not_be_satisfied_by:
+    - identity_signal
+    - consent_state
+    - confidence_score
+    - role_membership
+    - prior_execution
+
+on_gap:
+  action: FAIL
+  behavior:
+    - no_execution
+    - no_retry_escalation
+    - require_human_intervention
+
+relationship_to_consent:
+  consent_required_for:
+    - interpretation
+    - execution_consideration
+
+  authority_required_for:
+    - execution
+
+  precedence:
+    - authority_gap_blocks_execution_even_if_consent_active
+
+observability:
+  surfaced_as:
+    - authority_gap
+
+  jive:
+    simulate:
+      - authority-missing
+      - authority-asserted-not-verified
+      - authority-withdrawn
+
+    display:
+      - show_gaps
+      - explain_block
+
+  semantics:
+    authority_gap_is:
+      - expected_state
+      - non_error
+      - blocking_condition
+
+
