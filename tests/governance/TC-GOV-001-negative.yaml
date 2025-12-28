@@ -1,0 +1,13 @@
+negative_control:
+  id: TC-GOV-001-NEG
+  description: >
+    Typical system incorrectly executes when authority is missing.
+
+  failure_modes:
+    - confidence_substitutes_authority
+    - role_implies_permission
+    - consent_assumed
+
+  result:
+    execution: PERFORMED
+    governance: UNPROVABLE

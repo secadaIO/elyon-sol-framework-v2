@@ -1,0 +1,9 @@
+{
+  "type": "object",
+  "required": ["states", "transitions", "evaluation"],
+  "properties": {
+    "states": { "type": "array", "items": { "type": "string" } },
+    "transitions": { "type": "object" },
+    "evaluation": { "type": "object" }
+  }
+}

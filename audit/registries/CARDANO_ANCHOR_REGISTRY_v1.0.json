@@ -1,16 +1,3 @@
-"on_chain_references": [
-  {
-    "artifact": "CARDANO_ANCHOR_REGISTRY_v1.0.json",
-    "network": "cardano",
-    "metadata_label": "721004",
-    "tx_id": "25fa47636fabca098e6d462e29d0ab140650fe16155577b4bc61b0982e55207a",
-    "anchored_at": "2025-12-26",
-    "anchor_type": "proof-of-existence",
-    "notes": "On-chain PoE reference for anchor registry v1.0"
-  }
-],
-
-
 {
   "registry": {
     "name": "Elyon-Sol Cardano Anchor Registry",

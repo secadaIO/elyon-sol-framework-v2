@@ -1,0 +1,33 @@
+test_case:
+  id: TC-GOV-001
+  description: >
+    Refuse execution when consent is ACTIVE but authority is missing.
+
+  input:
+    request:
+      id: REQ-001
+      action: GRANT_PRIVILEGED_ACCESS
+      target: SYSTEM_X
+
+    identity:
+      type: employee
+      role: engineer
+      credentials: valid
+
+    consent:
+      state: ACTIVE
+      scope: access_management
+      issued_at_utc: 2025-12-01T00:00:00Z
+      expires_at_utc: 2026-01-01T00:00:00Z
+
+    intelligence:
+      recommendation: APPROVE
+      confidence: 0.97
+
+    authority:
+      state: GAP
+
+  expected:
+    execution: NOT_PERFORMED
+    outcome: FAIL
+    rule_triggered: AUTHORITY_GAP

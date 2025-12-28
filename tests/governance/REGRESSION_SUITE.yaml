@@ -1,0 +1,14 @@
+governance_regression_suite:
+  version: 1.0
+
+  must_fail:
+    - TC-GOV-001
+    - TC-CONSENT-MISSING
+    - TC-AUTHORITY-WITHDRAWN
+    - TC-COMBINED-FAILURE
+
+  invariants_verified:
+    - consent_required_for_interpretation
+    - authority_required_for_execution
+    - refusal_is_stable
+    - evidence_is_produced

@@ -1,30 +1,33 @@
-\# What Elyon-Sol Refuses
+# What Elyon-Sol Refuses
 
+Status: Draft  
+Scope: Public-Safe  
+Governance: Elyon-Sol MASTER CONTEXT v1.0 compliant  
 
+This document is descriptive only and defines refusal semantics.
+It introduces no execution logic.
 
-Elyon-Sol is designed to refuse action when governance conditions are not met.
+---
 
 
 
 It explicitly refuses to:
 
-\- Execute without VERIFIED authority
+- Execute without VERIFIED authority
 
-\- Treat identity as permission
+- Treat identity as permission
 
-\- Treat confidence as justification
+- Treat confidence as justification
 
-\- Assume consent
+- Assume consent
 
-\- Continue after revocation or expiry
+- Continue after revocation or expiry
 
-\- Retry escalation when authority is absent
+- Retry escalation when authority is absent
 
 
 
 Refusal is not failure.
 
 Refusal is correctness.
-
-
 
